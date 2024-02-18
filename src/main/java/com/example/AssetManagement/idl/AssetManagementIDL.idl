@@ -1,0 +1,21 @@
+module AssetManagementIDL {
+
+    struct AssetData {
+        long id;
+        string assetName;
+        long purchaseDate;
+        double purchasePrice;
+        double currentValue;
+        string status;
+        long vendorId;
+    };
+
+    interface AssetManager {
+        boolean addAsset(in AssetData assetData);
+        boolean updateAsset(in long assetId, in AssetData assetData);
+        boolean deleteAsset(in long assetId);
+        AssetData getAssetDetails(in long assetId);
+        typedef sequence<AssetData> AssetDataSeq;
+        AssetDataSeq getAllAssets();
+    };
+};
